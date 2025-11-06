@@ -120,11 +120,12 @@ echo "4. Добавление настроек TCP и UDP в /etc/sysctl.conf...
 echo "========================================="
 
 settings=(
-    "fs.file-max = 10485760"                    # Увеличен максимум открытых файлов для всей системы (10M)
+    "fs.file-max = 50000000"                    # Увеличен максимум открытых файлов для всей системы (10M)
+    "fs.nr_open = 4194304"                      # Увеличен максимум открытых файлов
     "net.core.rmem_max = 134217728"             # Увеличен буфер приема до 128MB
     "net.core.wmem_max = 134217728"             # Увеличен буфер отправки до 128MB
-    "net.core.netdev_max_backlog = 50000"       # Увеличена очередь интерфейса
-    "net.core.somaxconn = 65535"                # Максимальный лимит очереди запросов
+    "net.core.netdev_max_backlog = 500000"       # Увеличена очередь интерфейса
+    "net.core.somaxconn = 1048576"                # Максимальный лимит очереди запросов
     "net.core.default_qdisc = fq"               # Планировщик очереди по умолчанию
     "net.ipv4.tcp_syncookies = 1"               # Защита от SYN flood атак
     "net.ipv4.tcp_tw_reuse = 1"                 # Повторное использование TIME-WAIT сокетов
@@ -132,7 +133,7 @@ settings=(
     "net.ipv4.tcp_keepalive_time = 600"         # Время до начала отправки keepalive пакетов
     "net.ipv4.tcp_keepalive_probes = 3"         # Количество keepalive проб
     "net.ipv4.tcp_keepalive_intvl = 15"         # Интервал между keepalive пробами
-    "net.ipv4.tcp_max_syn_backlog = 30000"      # Увеличена очередь на установление соединений
+    "net.ipv4.tcp_max_syn_backlog = 1048576"      # Увеличена очередь на установление соединений
     "net.ipv4.ip_local_port_range = 1024 65535" # Максимальный диапазон портов
     "net.ipv4.tcp_slow_start_after_idle = 0"    # Отключен slow start после idle
     "net.ipv4.tcp_max_tw_buckets = 2000000"     # Увеличено количество TIME-WAIT сокетов (2M)
