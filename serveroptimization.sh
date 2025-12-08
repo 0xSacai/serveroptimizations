@@ -148,6 +148,7 @@ settings=(
     "net.ipv4.tcp_retries2 = 8"                 # Количество попыток ретрансляции
     "net.ipv6.conf.all.disable_ipv6 = 0"        # IPv6 включен
     "net.ipv6.conf.default.disable_ipv6 = 0"    # IPv6 включен по умолчанию
+    "net.netfilter.nf_conntrack_max = 1048576"  # Лимит подключений
 )
 
 for setting in "${settings[@]}"; do
