@@ -149,6 +149,7 @@ settings=(
     "net.ipv6.conf.all.disable_ipv6 = 0"        # IPv6 включен
     "net.ipv6.conf.default.disable_ipv6 = 0"    # IPv6 включен по умолчанию
     "net.netfilter.nf_conntrack_max = 1048576"  # Лимит подключений
+    "net.netfilter.nf_conntrack_buckets = 262144" # Так надо
 )
 
 for setting in "${settings[@]}"; do
